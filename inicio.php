@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 
-<?php require('notificaciones.php'); ?>
+<?php //require('notificaciones.php'); ?>
 
 
 

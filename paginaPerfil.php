@@ -13,13 +13,24 @@
             <div class="x_panel">
 
                 <?php
-                    $perfil_correo = $correo;
-                    if (isset($_GET['perfil'])) {
-                        $vpQuery = "SELECT * from usuarios where correo = '".$_GET['perfil']."'";
+                    $perfil_correo = isset($_GET['perfil']) ? $_GET['perfil'] : $correo;
+                    
+                        //$vpQuery = "SELECT * from usuarios where correo = '".$perfil_correo."'";
+                        $vpQuery = "SELECT usuarios.correo,
+                        usuarios.idUsuario,
+                        personas.nombre,
+                        personas.apellidoPaterno,
+                        personas.apellidoMaterno,
+                        personas.sexo
+                        from usuarios
+                        inner join personas
+                        on usuarios.idUsuario = personas.idUsuario
+                        where usuarios.correo = '$perfil_correo'
+                        ";
                         $vPerfil = $mysqli->query($vpQuery);
 
                         if ($vPerfil->num_rows==1) {
-                            $perfil_correo = $_GET['perfil'];
+                            //$perfil_correo = $_GET['perfil'];
                             while($a = $vPerfil->fetch_array()){
                                 $perfil_idUsuario = $a['idUsuario'];
                                 $perfil_nombre = $a['nombre'];
@@ -30,20 +41,7 @@
                                 $perfil_correo = $a['correo'];
                             }
                         }
-                    } else {
-                        $query = "SELECT * from usuarios where correo = '$correo'";
-                        $datos = $mysqli->query($query);
-
-                        while($a=$datos->fetch_array()){
-                            $perfil_idUsuario = $a['idUsuario'];
-                            $perfil_nombre = $a['nombre'];
-                            $perfil_apellidoPaterno = $a['apellidoPaterno'];
-                            $perfil_apellidoPaterno = $a['apellidoPaterno'];
-                            $perfil_apellidoMaterno = $a['apellidoMaterno'];
-                            $perfil_sexo = $a['sexo'];
-                            $perfil_correo = $a['correo'];
-                        }
-                    }
+                        echo $perfil_nombre;
                     //Cargar información del usuario
                     $qiPerfil = "SELECT * from perfil where idUsuario = '$perfil_idUsuario'";
                     $iPerfil = $mysqli->query($qiPerfil);
