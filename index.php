@@ -28,7 +28,7 @@
     <script type="text/javascript" src="js/notify/pnotify.core.js"></script>
     <script type="text/javascript" src="js/notify/pnotify.buttons.js"></script>
     <script type="text/javascript" src="js/notify/pnotify.nonblock.js"></script>
-    <?php require('notificaciones.php'); ?>
+    <?php //require('notificaciones.php'); ?>
 
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
