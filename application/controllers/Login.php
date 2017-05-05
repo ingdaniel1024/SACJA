@@ -5,6 +5,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+		$data['title'] = 'SACJA';
 		$data['css'] = array(
 			'/css/bootstrap.min.css',
 			'/css/font-awesome.min.css',
