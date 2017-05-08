@@ -25,7 +25,9 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <?php echo validation_errors(); ?>
+
+            <?php echo form_open(base_url().'login'); ?>
               <h1>Inicio de sesión</h1>
               <div>
                 <input type="text" class="form-control" placeholder="Usuario" required="" />
@@ -34,7 +36,7 @@
                 <input type="password" class="form-control" placeholder="Contraseña" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Iniciar sesión</a>
+                <input type="submit" class="btn btn-default submit" value="Iniciar sesión">
                 <a class="reset_pass" href="#">¿Contraseña olvidada?</a>
               </div>
 
