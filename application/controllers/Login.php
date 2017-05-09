@@ -21,12 +21,17 @@ class Login extends CI_Controller {
 
 	public function validate()
 	{
-		$this->load->helper('form');
-		$this->load->helper('url');
+		$this->load->model('login_model','login',TRUE);
+		$form = $this->input->post();
+		$validate = $this->login->validate_user($form);
 
-        $this->load->library('form_validation');
-
-        $this->load->view('success');
+		if ($validate) {
+			header("Location: /inicio");
+		} else {
+			header("Location: /");
+		}
+		$this->load->view('success');
+		//header("Location: /algo");
         
 	}
 }

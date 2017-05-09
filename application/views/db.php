@@ -8,11 +8,11 @@
 	<h2>Datos traidos desde SACJA</h2>
 
 	<?php
-		/*if ($test != null) {
-			foreach ($test as $key => $value) {
-				echo '<p>'.$value['nombreClase'].'</p>';
+		if ($arreglo != null) {
+			foreach ($arreglo as $key => $value) {
+				echo '<p>'.$value.'</p>';
 			}
-		}*/
+		}
 	?>
 </body>
 </html>
