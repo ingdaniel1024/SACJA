@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
+	function __construct(){
+		parent::__construct();
+		$this->load->library('session');
+	}
+
 	public function index()
 	{
 		$this->load->library('form_validation');
@@ -23,15 +28,21 @@ class Login extends CI_Controller {
 	{
 		$this->load->model('login_model','login',TRUE);
 		$form = $this->input->post();
-		$validate = $this->login->validate_user($form);
+		$validate_id = $this->login->validate_user($form);
 
-		if ($validate) {
+		if ($validate_id > 0) {
+			//$_SESSION['id'] = $validate_id;
+			$this->session->id = $validate_id;
 			header("Location: /inicio");
 		} else {
 			header("Location: /");
 		}
-		$this->load->view('success');
-		//header("Location: /algo");
         
+	}
+
+	public function cerrar_sesion()
+	{
+		unset($_SESSION['id']);
+        header('Location: /');
 	}
 }

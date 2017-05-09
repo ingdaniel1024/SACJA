@@ -16,6 +16,8 @@ class Login_model extends CI_Model {
 			where correo = '$correo'
 			and contrasena = '$contrasena'";
 		$res = $this->db->query($query);
-		return (count($res->result_array())) ? TRUE : FALSE;
+		$result = $res->row_array();
+
+		return (count($res)) ? $result['idUsuario'] : 0;
 	}
 }

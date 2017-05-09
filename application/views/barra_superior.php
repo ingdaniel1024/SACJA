@@ -20,7 +20,7 @@
               </a>
             </li>
             <li><a href="javascript:;">Ayuda</a></li>
-            <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a></li>
+            <li><a href="/login/cerrar_sesion"><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a></li>
           </ul>
         </li>
 
