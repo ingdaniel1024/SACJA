@@ -1,0 +1,11 @@
+A ok
+Puedes hacer una lista de reportes por área por ejemplo
+tesorería informe por aspirante, por reunión ordinaria, salida especial, reunión mensual y por ciclo.
+
+Unidad:
+Igual financiero, pero añadir asistencia, conducta, limpieza, uniforme
+
+Especialidades
+Por fecha , por cumplidas, por aspirante
+
+Estos son ejemplos solamente, debes adaptarlos a tu modelo del sistema y tu decides que incluir o no, te recomiendo incluyas mínimo éstos más los que veas pertinente
