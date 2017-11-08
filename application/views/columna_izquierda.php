@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
   <div class="left_col scroll-view">
     <div class="navbar nav_title" style="border: 0;">
-      <a href="/inicio" class="site_title"><img src="/img/sacja_34.jpg" style="border-radius: 50%;"> <span>Gentelella Alela!</span></a>
+      <a href="/inicio" class="site_title"><img src="/img/sacja_34.jpg" style="border-radius: 50%;"> <span>SACJA</span></a>
     </div>
 
     <div class="clearfix"></div>
