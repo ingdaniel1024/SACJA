@@ -12,10 +12,8 @@
         <img src="/img/usuarios/daniel@sacja.com.png" alt="..." class="img-circle profile_img">
       </div>
       <div class="profile_info">
-        <?php if($persona['sexo']=='masculino'){ $b = 'Bienvenido';}
-        else { $b = 'Bienvenida';}?>
-        <span><?php echo $b; ?>,</span>
-        <h2><?php echo $persona['nombre']?></h2>
+        <span><?= ($persona['sexo']=='masculino')?'Bienvenido':'Bienvenida'; ?>,</span>
+        <h2><?= $persona['nombre']?></h2>
       </div>
       <div class="clearfix"></div>
     </div>
@@ -41,8 +39,9 @@
         </h3>
         <ul class="nav side-menu">
           <li><a href="/inicio"><i class="fa fa-home"></i> Inicio </a></li>
-          <li><a><i class="fa fa-edit"></i> Opciones <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-edit"></i> Configuración <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
+                  <li><a href="/registro/club">Registrar Club</a></li>
                   <li><a href="?pagina=perfil">Mi perfil</a></li>
               </ul>
           </li>

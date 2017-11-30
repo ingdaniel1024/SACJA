@@ -15,22 +15,9 @@ class Inicio extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('personas_model','persona',TRUE);
-		$data['title'] = 'SACJA';
-		$data['css'] = array(
-			'/css/bootstrap.min.css',
-			'/css/font-awesome.min.css',
-			'/css/nprogress.css',
-			'/css/custom.min.css'
-			);
-		$data['js'] = array(
-			'/js/jquery.min.js',
-			'/js/bootstrap.min.js',
-			'/js/fastclick.js',
-			'/js/nprogress.js',
-			'/js/custom.min.js'
-			);
 		$data['persona'] = $this->persona->info_persona($this->session->id);
 		$data['permisos'] = $this->persona->permisos($this->session->id);
+		$data['view'] = 'contenido_plantilla';
 
 		$this->load->view('inicio',$data);
 	}

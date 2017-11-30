@@ -17,6 +17,6 @@ class Login_model extends CI_Model {
 		$res = $this->db->query($query);
 		$result = $res->row_array();
 
-		return (count($res)) ? $result['idUsuario'] : 0;
+		return (count($res)) ? $result['id_usuario'] : 0;
 	}
 }

@@ -7,13 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?php echo $title; ?></title>
+    <title><?= (isset($title))?$title:'SACJA'; ?></title>
     <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
 
+    <link href="" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/nprogress.css" rel="stylesheet">
+    <link href="/css/custom.min.css" rel="stylesheet">
     <?php
-      //CSS
-      foreach ($css as $key => $value) {
-        echo '<link href="'.$value.'" rel="stylesheet">';
+      //CSS ADICIONALES
+      if(isset($css)){
+        foreach ($css as $key => $value) {
+          echo '<link href="'.$value.'" rel="stylesheet">';
+        }
       }
     ?>
   </head>
@@ -29,9 +36,9 @@
         <?php $this->load->view('barra_superior'); ?>
         <!-- /Barra Superior -->
 
-        <!-- page content -->
-        <?php $this->load->view('contenido_plantilla'); ?>
-        <!-- /page content -->
+        <!-- Pagina -->
+        <?php $this->load->view($view); ?>
+        <!-- /Pagina -->
 
         <!-- footer content -->
         <?php $this->load->view('footer'); ?>
@@ -39,11 +46,18 @@
       </div>
     </div>
 
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
+      <script src="/js/fastclick.js"></script>
+      <script src="/js/nprogress.js"></script>
+      <script src="/js/custom.min.js"></script>
     <?php
-      //SCRIPTS
+      //SCRIPTS ADICIONALES
+    if(isset($js)){
       foreach ($js as $key => $value) {
         echo '<script src="'.$value.'"></script>';
       }
+    }
     ?>
   </body>
 </html>
