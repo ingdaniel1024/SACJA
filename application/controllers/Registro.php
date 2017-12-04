@@ -10,6 +10,8 @@ class Registro extends CI_Controller {
 
 	public function index()
 	{
+		$data['persona'] = $this->session->persona;
+		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro_club';
 		$this->load->view('inicio',$data);
 	}

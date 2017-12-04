@@ -6,17 +6,13 @@ class Inicio extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->library('session');
-
-        if (!$this->session->id) {
-        	header('Location: /');
-        }
+        if (!$this->session->id) { header('Location: /'); }
     }
 
 	public function index()
 	{
-		$this->load->model('personas_model','persona',TRUE);
-		$data['persona'] = $this->persona->info_persona($this->session->id);
-		$data['permisos'] = $this->persona->permisos($this->session->id);
+		$data['persona'] = $this->session->persona;
+		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'contenido_plantilla';
 
 		$this->load->view('inicio',$data);
