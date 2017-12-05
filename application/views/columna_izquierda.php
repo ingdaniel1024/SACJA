@@ -12,7 +12,7 @@
         <img src="/img/usuarios/daniel@sacja.com.png" alt="..." class="img-circle profile_img">
       </div>
       <div class="profile_info">
-        <span><?= ($persona['sexo']=='masculino')?'Bienvenido':'Bienvenida'; ?>,</span>
+        <span><?= ($persona['sexo']=='femenino')?'Bienvenida':'Bienvenido'; ?>,</span>
         <h2><?= $persona['nombre']?></h2>
       </div>
       <div class="clearfix"></div>

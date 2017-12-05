@@ -32,8 +32,8 @@ class Login extends CI_Controller {
 
 		if ($validate_id > 0) {
 			//$_SESSION['id'] = $validate_id;
-			$this->session->id = $validate_id;
 			$this->load->model('personas_model','persona',TRUE);
+			$this->session->id = $validate_id;
 			$this->session->persona = $this->persona->info_persona($this->session->id);
 			$this->session->permisos = $this->persona->permisos($this->session->id);
 			header("Location: /inicio");

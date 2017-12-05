@@ -13,7 +13,7 @@ class Inicio extends CI_Controller {
 	{
 		$data['persona'] = $this->session->persona;
 		$data['permisos'] = $this->session->permisos;
-		$data['view'] = 'contenido_plantilla';
+		$data['view'] = 'dummy';
 
 		$this->load->view('inicio',$data);
 	}
