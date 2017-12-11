@@ -7,6 +7,7 @@ class Registro extends CI_Controller {
 		parent::__construct();
 		$this->load->library('session');
 		if (!$this->session->id) { header('Location: /'); }
+		$this->load->database();
 	}
 
 	public function index($formato='')
@@ -28,6 +29,17 @@ class Registro extends CI_Controller {
 		);*/
 
 		//$this->db->insert('mytable', $data);  
+	}
+
+	public function registrar_union(){
+		$this->db->insert('uniones', $this->input->post());
+
+		$data['persona'] = $this->session->persona;
+		$data['permisos'] = $this->session->permisos;
+		$data['view'] = 'mensaje';
+		$data['mensaje'] = 'Unión registrada correctamente';
+
+		$this->load->view('inicio',$data);
 	}
 
 	
