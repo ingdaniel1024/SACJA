@@ -15,6 +15,10 @@
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/nprogress.css" rel="stylesheet">
     <link href="/css/custom.min.css" rel="stylesheet">
+    <!--Pnotify-->
+    <link href="/css/pnotify/pnotify.css" rel="stylesheet">
+    <link href="/css/pnotify/pnotify.buttons.css" rel="stylesheet">
+    <link href="/css/pnotify/pnotify.nonblock.css" rel="stylesheet">
     <?php
       //CSS ADICIONALES
       if(isset($css)){
