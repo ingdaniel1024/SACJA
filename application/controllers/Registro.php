@@ -32,14 +32,22 @@ class Registro extends CI_Controller {
 	}
 
 	public function registrar_union(){
-		$this->db->insert('uniones', $this->input->post());
-
-		$data['persona'] = $this->session->persona;
-		$data['permisos'] = $this->session->permisos;
-		$data['view'] = 'mensaje';
-		$data['mensaje'] = 'Unión registrada correctamente';
-
-		$this->load->view('inicio',$data);
+		if ($this->db->insert('uniones', $this->input->post())){
+			$this->session->notificacion = array(
+				'type' => 'success',
+				'title' => 'Éxito',
+				'text' => 'Unión registrada correctamente.',
+				'hide' => 'false'
+				);
+		} else {
+			$this->session->notificacion = array(
+				'type' => 'error',
+				'title' => 'Error',
+				'text' => 'No se pudo registrar la unión.',
+				'hide' => 'false'
+				);
+		}
+		header('Location: /registro/union');
 	}
 
 	

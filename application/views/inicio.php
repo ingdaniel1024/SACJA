@@ -60,19 +60,24 @@
       <script type="text/javascript" src="/js/notify/pnotify.core.js"></script>
       <script type="text/javascript" src="/js/notify/pnotify.buttons.js"></script>
       <script type="text/javascript" src="/js/notify/pnotify.nonblock.js"></script>
-
-    <script type="text/javascript">
+      <?php
+      if(isset($this->session->notificacion)){ ?>
+      <script type="text/javascript">
         var permanotice, tooltip, _alert;
         $(function () {
             new PNotify({
-                type: "success",
-                title: "Hola",
-                text: "Soy una notificación de prueba",
-                hide: false,
-                
+                type: "<?= $this->session->notificacion['type']?>",
+                title: "<?= $this->session->notificacion['title']?>",
+                text: "<?= $this->session->notificacion['text']?>",
+                hide: <?= $this->session->notificacion['hide']?>
             });
         });
-    </script>
+      </script>
+      <?php
+      //Eliminar la notificacion de la variable de sesion para que no aparezca otra vez
+      unset($_SESSION['notificacion']);
+      } ?>
+      
 
     <?php
       //SCRIPTS ADICIONALES
