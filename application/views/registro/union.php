@@ -35,7 +35,7 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-              <form class="form-horizontal form-label-left" id="formularioRegistroClub" action="/registro/registrar_union" method="POST" enctype="multipart/form-data">
+              <form class="form-horizontal form-label-left" id="formulario_registro_union" action="/registro/registrar_union" method="POST" enctype="multipart/form-data">
                 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre de la Unión <span class="required">*</span>

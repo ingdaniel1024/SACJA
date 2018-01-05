@@ -15,6 +15,7 @@ class Registro extends CI_Controller {
 		$data['persona'] = $this->session->persona;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = ($formato!='')?'registro/'.$formato:'dummy';
+		$data['js'] = array('/js/registros/'.$formato.'.js');
 
 		$this->load->view('inicio',$data);
 	}
@@ -48,6 +49,25 @@ class Registro extends CI_Controller {
 				);
 		}
 		header('Location: /registro/union');
+	}
+
+	public function registrar_asociacion(){
+		if ($this->db->insert('asociaciones_misiones', $this->input->post())){
+			$this->session->notificacion = array(
+				'type' => 'success',
+				'title' => 'Éxito',
+				'text' => 'Asociación registrada correctamente.',
+				'hide' => 'false'
+				);
+		} else {
+			$this->session->notificacion = array(
+				'type' => 'error',
+				'title' => 'Error',
+				'text' => 'No se pudo registrar la asociación.',
+				'hide' => 'false'
+				);
+		}
+		header('Location: /registro/asociacion');
 	}
 
 	
