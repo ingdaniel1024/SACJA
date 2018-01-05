@@ -48,7 +48,7 @@
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Unión</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                       <select class="form-control" id="id_union" name="id_union" required>
-                          <option>Selecciona una Unión</option>
+                          <option value="0">Selecciona una Unión</option>
                       </select>
                   </div>
               </div>

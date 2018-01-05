@@ -16,3 +16,10 @@ $.ajax({
 		alert('Hubo un error');
 	}
 });
+
+$('#formulario_registro_asociacion').submit(function(e){
+	if($('#id_union option:selected').val()==0){
+		e.preventDefault();
+		alert('Selecciona una unión.');
+	}
+});
