@@ -35,39 +35,23 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-              <form class="form-horizontal form-label-left" id="formularioRegistroClub" action="/registro/registrar_club" method="POST" enctype="multipart/form-data">
+              <form class="form-horizontal form-label-left" id="formulario_registro_distrito" action="/registro/registrar_distrito" method="POST" enctype="multipart/form-data">
                 
                 <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre del Club <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre_distrito">Nombre del Distrito <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre" name="nombre_club" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="text" id="nombre" name="nombre_distrito" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Unión</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="asociacion" name="union" class="form-control col-md-7 col-xs-12" type="text" maxlength="50">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Asociación o Misión</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="asociacion" name="asociacion" class="form-control col-md-7 col-xs-12" type="text" maxlength="50">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Distrito</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="distrito" name="distrito" class="form-control col-md-7 col-xs-12" type="text" maxlength="50">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Iglesia</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="iglesia" name="iglesia" class="form-control col-md-7 col-xs-12" type="text" maxlength="50">
-                    </div>
-                </div>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Asociación</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                      <select class="form-control" id="id_asociacion" name="id_asociacion" required>
+                          <option value="0">Selecciona una Asociación</option>
+                      </select>
+                  </div>
+              </div>
                 <div class="form-group">
                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                       <button type="submit" class="btn btn-success">Aceptar</button>
