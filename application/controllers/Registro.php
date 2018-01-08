@@ -6,6 +6,7 @@ class Registro extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->library('session');
+		$this->load->helper('file');
 		if (!$this->session->id) { header('Location: /'); }
 		$this->load->database();
 	}
@@ -15,21 +16,11 @@ class Registro extends CI_Controller {
 		$data['persona'] = $this->session->persona;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = ($formato!='')?'registro/'.$formato:'dummy';
-		$data['js'] = array('/js/registros/'.$formato.'.js');
+		if (file_exists('js/registros/'.$formato.'.js')) {
+			$data['js'] = array('/js/registros/'.$formato.'.js');
+		}		
 
 		$this->load->view('inicio',$data);
-	}
-
-	public function registrar_club(){
-		echo 'Hola';
-		var_dump($this->input->post());
-		/*$data = array(
-	        'title' => $this->input->post(''),
-	        'name' => $name,
-	        'date' => $date
-		);*/
-
-		//$this->db->insert('mytable', $data);  
 	}
 
 	public function registrar_union(){
@@ -68,6 +59,43 @@ class Registro extends CI_Controller {
 				);
 		}
 		header('Location: /registro/asociacion');
+	}
+
+	public function registrar_distrito(){
+		if ($this->db->insert('distritos', $this->input->post())){
+			$this->session->notificacion = array(
+				'type' => 'success',
+				'title' => 'Éxito',
+				'text' => 'Distrito registrado correctamente.',
+				'hide' => 'false'
+				);
+		} else {
+			$this->session->notificacion = array(
+				'type' => 'error',
+				'title' => 'Error',
+				'text' => 'No se pudo registrar el distrito.',
+				'hide' => 'false'
+				);
+		}
+		header('Location: /registro/distrito');
+	}
+	public function registrar_iglesia(){
+		if ($this->db->insert('iglesias', $this->input->post())){
+			$this->session->notificacion = array(
+				'type' => 'success',
+				'title' => 'Éxito',
+				'text' => 'Iglesia registrada correctamente.',
+				'hide' => 'false'
+				);
+		} else {
+			$this->session->notificacion = array(
+				'type' => 'error',
+				'title' => 'Error',
+				'text' => 'No se pudo registrar la iglesia.',
+				'hide' => 'false'
+				);
+		}
+		header('Location: /registro/iglesia');
 	}
 
 	
