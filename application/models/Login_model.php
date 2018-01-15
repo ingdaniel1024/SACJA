@@ -8,15 +8,14 @@ class Login_model extends CI_Model {
 
 	function validate_user($form)
 	{
-		$correo = $form['correo'];
-		$contrasena = sha1($form['contrasena']);
-		$query = "
-			SELECT * from usuarios
-			where correo = '$correo'
-			and contrasena = '$contrasena'";
-		$res = $this->db->query($query);
-		$result = $res->row_array();
+		$where = array(
+			'correo' => $form['correo'],
+			'contrasena' => sha1($form['contrasena'])
+		);
+		
+		$query = $this->db->get_where('usuarios',$where);
+		$result = $query->row_array();
 
-		return (count($res)) ? $result['id_usuario'] : 0;
+		return (count($query)) ? $result['id_usuario'] : 0;
 	}
 }
