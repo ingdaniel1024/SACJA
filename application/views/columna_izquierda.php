@@ -39,7 +39,7 @@
         </h3>
         <ul class="nav side-menu">
           <li><a href="/inicio"><i class="fa fa-home"></i> Inicio </a></li>
-          <li><a><i class="fa fa-edit"></i> Configuración <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-edit"></i> Admin <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
                   <li><a href="/registro/usuario">Registrar Usuario</a></li>
                   <li><a href="/registro/union">Registrar Unión</a></li>

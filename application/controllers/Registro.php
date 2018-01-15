@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Registro extends CI_Controller {
 
-	function __construct(){
+	function __construct()
+	{
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->helper('file');
@@ -23,7 +24,56 @@ class Registro extends CI_Controller {
 		$this->load->view('inicio',$data);
 	}
 
-	public function registrar_union(){
+	public function registrar_usuario()
+	{
+		$where = array(
+			'correo' => $this->input->post('correo')
+		);
+		
+		
+
+		if($this->input->post('contrasena') == $this->input->post('contrasena2')){
+			unset($_POST['contrasena2']);
+			$_POST['contrasena'] = sha1($_POST['contrasena']);
+			$query = $this->db->get_where('usuarios',$where);
+			$result = $query->row_array();
+			if(count($query->result())==0){
+				if ($this->db->insert('usuarios', $this->input->post())){
+					$this->session->notificacion = array(
+						'type' => 'success',
+						'title' => 'Éxito',
+						'text' => 'Usuario registrado correctamente.',
+						'hide' => 'false'
+						);
+				} else {
+					$this->session->notificacion = array(
+						'type' => 'error',
+						'title' => 'Error',
+						'text' => 'No se pudo registrar el usuario.',
+						'hide' => 'false'
+						);
+				}
+			} else {
+				$this->session->notificacion = array(
+					'type' => 'info',
+					'title' => 'Aviso',
+					'text' => 'Ese usuario ya estaba registrado.',
+					'hide' => 'false'
+					);
+			}
+		} else{
+			$this->session->notificacion = array(
+				'type' => 'error',
+				'title' => 'Error',
+				'text' => 'Las contraseñas no coinciden.',
+				'hide' => 'false'
+				);
+		}
+		header('Location: /registro/usuario');
+	}
+
+	public function registrar_union()
+	{
 		if ($this->db->insert('uniones', $this->input->post())){
 			$this->session->notificacion = array(
 				'type' => 'success',
@@ -42,7 +92,8 @@ class Registro extends CI_Controller {
 		header('Location: /registro/union');
 	}
 
-	public function registrar_asociacion(){
+	public function registrar_asociacion()
+	{
 		if ($this->db->insert('asociaciones_misiones', $this->input->post())){
 			$this->session->notificacion = array(
 				'type' => 'success',
@@ -61,7 +112,8 @@ class Registro extends CI_Controller {
 		header('Location: /registro/asociacion');
 	}
 
-	public function registrar_distrito(){
+	public function registrar_distrito()
+	{
 		if ($this->db->insert('distritos', $this->input->post())){
 			$this->session->notificacion = array(
 				'type' => 'success',
@@ -79,7 +131,8 @@ class Registro extends CI_Controller {
 		}
 		header('Location: /registro/distrito');
 	}
-	public function registrar_iglesia(){
+	public function registrar_iglesia()
+	{
 		if ($this->db->insert('iglesias', $this->input->post())){
 			$this->session->notificacion = array(
 				'type' => 'success',
@@ -96,6 +149,25 @@ class Registro extends CI_Controller {
 				);
 		}
 		header('Location: /registro/iglesia');
+	}
+	public function registrar_club()
+	{
+		if ($this->db->insert('clubes', $this->input->post())){
+			$this->session->notificacion = array(
+				'type' => 'success',
+				'title' => 'Éxito',
+				'text' => 'Club registrado correctamente.',
+				'hide' => 'false'
+				);
+		} else {
+			$this->session->notificacion = array(
+				'type' => 'error',
+				'title' => 'Error',
+				'text' => 'No se pudo registrar el club.',
+				'hide' => 'false'
+				);
+		}
+		header('Location: /registro/club');
 	}
 
 	

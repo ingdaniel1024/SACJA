@@ -23,4 +23,9 @@ class Ajax extends CI_Controller {
 		$query = $this->db->get('distritos');
 		echo json_encode($query->result_array());
 	}
+	public function iglesias()
+	{
+		$query = $this->db->get('iglesias');
+		echo json_encode($query->result_array());
+	}
 }
