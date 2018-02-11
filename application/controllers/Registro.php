@@ -9,6 +9,7 @@ class Registro extends CI_Controller {
 		$this->load->library('session');
 		$this->load->helper('file');
 		$this->load->helper('notifications');
+		$this->load->model('sql_model','sql',TRUE);
 		if (!$this->session->id) { header('Location: /'); }
 		$this->load->database();
 	}
@@ -39,7 +40,7 @@ class Registro extends CI_Controller {
 			$query = $this->db->get_where('usuarios',$where);
 			$result = $query->row_array();
 			if(count($query->result())==0){
-				if ($this->db->insert('usuarios', $this->input->post())){
+				if ($this->sql->insert('usuarios', $this->input->post())){
 					$this->session->notificacion=notif('success','Usuario registrado correctamente.');
 				} else {
 					$this->session->notificacion=notif('error','No se pudo registrar el usuario');
@@ -55,7 +56,7 @@ class Registro extends CI_Controller {
 
 	public function registrar_union()
 	{
-		if ($this->db->insert('uniones', $this->input->post())){
+		if ($this->sql->insert('uniones', $this->input->post())){
 			$this->session->notificacion=notif('success','Unión registrada correctamente.');
 		} else {
 			$this->session->notificacion=notif('error','No se pudo registrar la unión.');
@@ -65,7 +66,7 @@ class Registro extends CI_Controller {
 
 	public function registrar_asociacion()
 	{
-		if ($this->db->insert('asociaciones_misiones', $this->input->post())){
+		if ($this->sql->insert('asociaciones_misiones', $this->input->post())){
 			$this->session->notificacion=notif('success','Asociación registrada correctamente.');
 		} else {
 			$this->session->notificacion=notif('error','No se pudo registrar la asociación.');
@@ -75,7 +76,7 @@ class Registro extends CI_Controller {
 
 	public function registrar_distrito()
 	{
-		if ($this->db->insert('distritos', $this->input->post())){
+		if ($this->sql->insert('distritos', $this->input->post())){
 			$this->session->notificacion=notif('success','Distrito registrado correctamente.');
 		} else {
 			$this->session->notificacion=notif('error','No se pudo registrar el distrito.');
@@ -84,7 +85,7 @@ class Registro extends CI_Controller {
 	}
 	public function registrar_iglesia()
 	{
-		if ($this->db->insert('iglesias', $this->input->post())){
+		if ($this->sql->insert('iglesias', $this->input->post())){
 			$this->session->notificacion=notif('success','Iglesia registrada correctamente.');
 		} else {
 			$this->session->notificacion=notif('error','No se pudo registrar la iglesia.');
@@ -93,7 +94,7 @@ class Registro extends CI_Controller {
 	}
 	public function registrar_club()
 	{
-		if ($this->db->insert('clubes', $this->input->post())){
+		if ($this->sql->insert('clubes', $this->input->post())){
 			$this->session->notificacion=notif('success','Club registrado correctamente.');
 		} else {
 			$this->session->notificacion=notif('error','No se pudo registrar el club.');
