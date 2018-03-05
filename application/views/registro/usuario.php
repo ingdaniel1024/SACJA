@@ -62,7 +62,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo">Correo <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="email" id="correo" name="correo" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="email" id="correo" name="correo" class="form-control col-md-7 col-xs-12" maxlength="50" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -77,6 +77,35 @@
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <input type="password" id="contrasena2" name="contrasena2" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sexo">Sexo:</label>
+                      <p>
+                          <label>Masculino:</label> <input type="radio" class="flat" name="sexo" id="sexoM" value="masculino" checked="" required />
+                          <label>Femenino:</label> <input type="radio" class="flat" name="sexo" id="sexoF" value="femenino" />
+                      </p>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha_nacimiento">Fecha de Nacimiento
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control" data-inputmask="'mask':'99/99/9999'">
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Clase actual</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                      <select class="form-control" id="id_clase" name="id_clase" required>
+                          <option value="0">Selecciona una Clase</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">Teléfono
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" name="telefono" id="telefono" class="form-control" data-inputmask="'mask':'(999)-999-9999'">
                     </div>
                 </div>
                 <div class="form-group">

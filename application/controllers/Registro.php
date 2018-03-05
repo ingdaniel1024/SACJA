@@ -21,7 +21,14 @@ class Registro extends CI_Controller {
 		$data['view'] = ($formato!='')?'registro/'.$formato:'dummy';
 		if (file_exists('js/registros/'.$formato.'.js')) {
 			$data['js'] = array('/js/registros/'.$formato.'.js');
-		}		
+		}
+		/*USUARIO*/
+		if($formato=='usuario'){
+			array_push($data['js'], '/js/icheck.min.js','/js/jquery.inputmask.js');
+			$data['css'] = array('/css/icheck/green.css');
+
+		}
+		/*USUARIO*/
 
 		$this->load->view('inicio',$data);
 	}
@@ -30,9 +37,7 @@ class Registro extends CI_Controller {
 	{
 		$where = array(
 			'correo' => $this->input->post('correo')
-		);
-		
-		
+		);		
 
 		if($this->input->post('contrasena') == $this->input->post('contrasena2')){
 			unset($_POST['contrasena2']);
@@ -40,6 +45,21 @@ class Registro extends CI_Controller {
 			$query = $this->db->get_where('usuarios',$where);
 			$result = $query->row_array();
 			if(count($query->result())==0){
+
+				//Validar fecha
+				$fn = $this->input->post('fecha_nacimiento');
+				if(!is_int(strpos($fn, '_')) && $fn!=''){ //Si la fecha es correcta modifica la sintaxis
+					$f_original = $fn;
+					$f = explode('/', $f_original);
+					$_POST['fecha_nacimiento'] = $f[2].'-'.$f[1].'-'.$f[0];
+				} else { unset($_POST['fecha_nacimiento']); } //En caso de error elimina la fecha
+
+				//Validar clase
+				if($this->input->post('id_clase')==0){ unset($_POST['id_clase']); }
+
+				//Validar telefono
+				if(strpos($this->input->post('telefono'), '_')){ unset($_POST['telefono']); }
+
 				if ($this->sql->insert('usuarios', $this->input->post())){
 					$this->session->notificacion=notif('success','Usuario registrado correctamente.');
 				} else {

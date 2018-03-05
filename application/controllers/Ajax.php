@@ -28,4 +28,27 @@ class Ajax extends CI_Controller {
 		$query = $this->db->get('iglesias');
 		echo json_encode($query->result_array());
 	}
+	public function clases_conquistadores()
+	{
+		$where = array(
+			'id_clase <' => 7 //Los primeros 6 registros son las clases de Conquistadores
+		);
+		
+		$query = $this->db->get_where('clases',$where);
+		$result = $query->result_array();
+
+		echo json_encode($result);
+	}
+	public function usuario_existente()
+	{
+		;
+		$where = array(
+			'correo' => $this->input->post('correo') //Poner el correo en el where
+		);
+		
+		$query = $this->db->get_where('usuarios',$where);
+		$result = $query->result_array();
+
+		echo json_encode($result);
+	}
 }

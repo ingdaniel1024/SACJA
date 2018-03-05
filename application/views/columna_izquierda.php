@@ -51,7 +51,7 @@
               </ul>
           </li>
           
-          <li><a><i class="fa fa-child"></i> Admin <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-child"></i> Old Admin <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
                   <li><a href="?pagina=administrarRequisitos">Requisitos de Clase</a></li>
               </ul>
