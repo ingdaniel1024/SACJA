@@ -35,13 +35,13 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-              <form class="form-horizontal form-label-left" id="formulario_registro_union" action="/registro/registrar_union" method="POST" enctype="multipart/form-data">
-                
+              <form class="form-horizontal form-label-left" id="formulario_registro_union" action="/union/registrar" method="POST" enctype="multipart/form-data">
+                <?php if($union!=null){ echo form_hidden('id_union', $union['id_union']);}?>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre de la Unión <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre" name="nombre_union" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="text" value="<?=$union['nombre_union']?>" id="nombre" name="nombre_union" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">

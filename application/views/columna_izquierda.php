@@ -42,7 +42,7 @@
           <li><a><i class="fa fa-edit"></i> Admin <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
                   <li><a href="/registro/usuario">Registrar Usuario</a></li>
-                  <li><a href="/registro/union">Registrar Unión</a></li>
+                  <li><a href="/union">Uniones</a></li>
                   <li><a href="/registro/asociacion">Registrar Asociación</a></li>
                   <li><a href="/registro/distrito">Registrar Distrito</a></li>
                   <li><a href="/registro/iglesia">Registrar Iglesia</a></li>

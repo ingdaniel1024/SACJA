@@ -42,7 +42,7 @@ class Registro extends CI_Controller {
 		if($this->input->post('contrasena') == $this->input->post('contrasena2')){
 			unset($_POST['contrasena2']);
 			$_POST['contrasena'] = sha1($_POST['contrasena']);
-			$query = $this->db->get_where('usuarios',$where);
+			$query = $this->sql->get_where('usuarios',$where);
 			$result = $query->row_array();
 			if(count($query->result())==0){
 
