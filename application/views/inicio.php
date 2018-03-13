@@ -77,10 +77,26 @@
       //Eliminar la notificacion de la variable de sesion para que no aparezca otra vez
       unset($_SESSION['notificacion']);
       } ?>
-      
+
+
+    <script type="text/javascript">
+        let php = [];
+        <?php
+          if(isset($js_vars)){
+          foreach ($js_vars as $key => $value) {
+            if($value!=null){ ?>
+            php['<?=$key?>'] = <?= $value ?>;
+          <?php }
+            }
+        }
+        ?>
+    </script>
+
+     
+     
 
     <?php
-      //SCRIPTS ADICIONALES
+    //SCRIPTS ADICIONALES
     if(isset($js)){
       foreach ($js as $key => $value) {
         echo '<script src="'.$value.'"></script>';

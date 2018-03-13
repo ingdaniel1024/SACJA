@@ -35,13 +35,13 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-              <form class="form-horizontal form-label-left" id="formulario_registro_asociacion" action="/registro/registrar_asociacion" method="POST" enctype="multipart/form-data">
-                
+              <form class="form-horizontal form-label-left" id="formulario_registro_asociacion" action="/asociacion/registrar" method="POST" enctype="multipart/form-data">
+                <?php if($asociacion!=null){ echo form_hidden('id_asociacion', $asociacion['id_asociacion']);}?>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre de la Asociación <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre" name="nombre_asociacion" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="text" value="<?=$asociacion['nombre_asociacion']?>" id="nombre" name="nombre_asociacion" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">

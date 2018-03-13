@@ -52,4 +52,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['union/editar/(:num)'] = '/union/agregar/$1';
+$route['(union|asociacion)/editar/(:num)'] = '/$1/agregar/$2';
