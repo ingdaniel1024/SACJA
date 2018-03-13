@@ -43,16 +43,16 @@ class Asociacion extends CI_Controller {
 		if($this->input->post('id_asociacion')!=null){
 		//Actualizar datos existentes
 			if ($this->sql->update('asociaciones_misiones', $this->input->post(),'id_asociacion',$this->input->post('id_asociacion'))){
-				$this->session->notificacion=notif('success','Unión actualizada correctamente.');
+				$this->session->notificacion=notif('success','Asociación actualizada correctamente.');
 			} else {
-				$this->session->notificacion=notif('error','No se pudo actualizar la unión.');
+				$this->session->notificacion=notif('error','No se pudo actualizar la asociación.');
 			}
 		} else {
 		//Insertar datos nuevos
 			if ($this->sql->insert('asociaciones_misiones', $this->input->post())){
-				$this->session->notificacion=notif('success','Unión registrada correctamente.');
+				$this->session->notificacion=notif('success','Asociación registrada correctamente.');
 			} else {
-				$this->session->notificacion=notif('error','No se pudo registrar la unión.');
+				$this->session->notificacion=notif('error','No se pudo registrar la asociación.');
 			}
 		}
 		
