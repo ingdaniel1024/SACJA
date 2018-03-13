@@ -44,7 +44,7 @@
                   <li><a href="/registro/usuario">Registrar Usuario</a></li>
                   <li><a href="/union">Uniones</a></li>
                   <li><a href="/asociacion">Asociaciones</a></li>
-                  <li><a href="/registro/distrito">Registrar Distrito</a></li>
+                  <li><a href="/distrito">Distrito</a></li>
                   <li><a href="/registro/iglesia">Registrar Iglesia</a></li>
                   <li><a href="/registro/club">Registrar Club</a></li>
                   <li><a href="?pagina=perfil">Mi perfil</a></li>

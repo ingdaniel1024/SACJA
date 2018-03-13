@@ -35,13 +35,13 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-              <form class="form-horizontal form-label-left" id="formulario_registro_distrito" action="/registro/registrar_distrito" method="POST" enctype="multipart/form-data">
-                
+              <form class="form-horizontal form-label-left" id="formulario_registro_distrito" action="/distrito/registrar" method="POST" enctype="multipart/form-data">
+                <?php if($distrito!=null){ echo form_hidden('id_distrito', $distrito['id_distrito']);}?>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre_distrito">Nombre del Distrito <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre" name="nombre_distrito" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="text" value="<?=$distrito['nombre_distrito']?>" id="nombre" name="nombre_distrito" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
