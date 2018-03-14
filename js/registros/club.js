@@ -5,11 +5,13 @@ $.ajax({
 	success: function(response){
 
 		$.each(response,function(index,value){//Por cada union añadir un option al select
-			$('#iglesia')
-         		.append($("<option></option>")
-                .attr("value",value.id_iglesia)
-                .text(value.nombre_iglesia));
-			//console.log(value.id_union+' -> '+value.nombre_union);
+			$('#id_iglesia')
+    		.append($("<option></option>")
+            .attr("value",value.id_iglesia)
+            .text(value.nombre_iglesia));
+			if(value.id_iglesia== php['id_iglesia']){//En caso de editar, selecciona la union existente
+				$('#id_iglesia option[value='+php['id_iglesia']+']').attr("selected","selected");
+			}
 		});
 	},
 	error: function(error){

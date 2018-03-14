@@ -35,20 +35,21 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-              <form class="form-horizontal form-label-left" id="formulario_registro_club" action="/registro/registrar_club" method="POST" enctype="multipart/form-data">
+              <form class="form-horizontal form-label-left" id="formulario_registro_club" action="/club/registrar" method="POST" enctype="multipart/form-data">
+                <?php if($club!=null){ echo form_hidden('id_club', $club['id_club']);}?>
+                <?php echo form_hidden('tipo', 3); ?>
                 <input type="hidden" name="tipo" value="3">
-                <input type="hidden" name="aprobado" value="1">
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre_club">Nombre del Club <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre_club" name="nombre_club" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="text" value="<?=$club['nombre_club']?>" id="nombre_club" name="nombre_club" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="iglesia">Iglesia</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                      <select class="form-control" id="iglesia" name="iglesia" required>
+                      <select class="form-control" id="id_iglesia" name="id_iglesia" required>
                           <option value="0">Selecciona una Iglesia</option>
                       </select>
                   </div>

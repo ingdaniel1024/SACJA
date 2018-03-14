@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Iglesia extends CI_Controller {
+class Club extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
@@ -16,9 +16,9 @@ class Iglesia extends CI_Controller {
 	{
 		$data['persona'] = $this->session->persona;
 		$data['permisos'] = $this->session->permisos;
-		$data['iglesias'] = $this->sql->get_where('iglesias',null);
-		$data['view'] = 'listado/iglesia';
-		$data['js'] = array('/js/icheck.min.js','/js/listado/iglesia');
+		$data['clubes'] = $this->sql->get_where('clubes',null);
+		$data['view'] = 'listado/club';
+		$data['js'] = array('/js/icheck.min.js','/js/listado/club');
 		$data['css'] = array('/css/icheck/green');
 
 		$this->load->view('inicio',$data);
@@ -28,39 +28,39 @@ class Iglesia extends CI_Controller {
 	{
 		$data['persona'] = $this->session->persona;
 		$data['permisos'] = $this->session->permisos;
-		$data['view'] = 'registro/iglesia';
-		$data['iglesia'] = ($id!=null && $id!=0) ? $this->sql->get_where('iglesias',array('id_iglesia'=>$id))[0] : null;
-		if($data['iglesia']!=null){
-			$data['js_vars'] = array('id_distrito'=>$data['iglesia']['id_distrito']);
+		$data['view'] = 'registro/club';
+		$data['club'] = ($id!=null && $id!=0) ? $this->sql->get_where('clubes',array('id_club'=>$id))[0] : null;
+		if($data['club']!=null){
+			$data['js_vars'] = array('id_iglesia'=>$data['club']['id_iglesia']);
 		}
-		$data['js'] = array('/js/icheck.min.js','/js/registros/iglesia');
+		$data['js'] = array('/js/icheck.min.js','/js/registros/club');
 
 		$this->load->view('inicio',$data);
 	}
 	
 	public function registrar()//Guardar en la DB
 	{
-		if($this->input->post('id_iglesia')!=null){
+		if($this->input->post('id_club')!=null){
 		//Actualizar datos existentes
-			if ($this->sql->update('iglesias', $this->input->post(),'id_iglesia',$this->input->post('id_iglesia'))){
-				$this->session->notificacion=notif('success','Iglesia actualizada correctamente.');
+			if ($this->sql->update('clubes', $this->input->post(),'id_club',$this->input->post('id_club'))){
+				$this->session->notificacion=notif('success','Club actualizado correctamente.');
 			} else {
-				$this->session->notificacion=notif('error','No se pudo actualizar la iglesia.');
+				$this->session->notificacion=notif('error','No se pudo actualizar el club.');
 			}
 		} else {
 		//Insertar datos nuevos
-			if ($this->sql->insert('iglesias', $this->input->post())){
-				$this->session->notificacion=notif('success','Iglesia registrada correctamente.');
+			if ($this->sql->insert('clubes', $this->input->post())){
+				$this->session->notificacion=notif('success','Club registrado correctamente.');
 			} else {
-				$this->session->notificacion=notif('error','No se pudo registrar la iglesia.');
+				$this->session->notificacion=notif('error','No se pudo registrar el club.');
 			}
 		}
 		
-		header('Location: /iglesia');
+		header('Location: /club');
 	}
 	public function status($status,$id)
 	{
-		if($this->sql->change_status('iglesias',$status,'id_iglesia',$id)){
+		if($this->sql->change_status('clubes',$status,'id_club',$id)){
 			$this->session->notificacion=notif('success','Status modificado correctamente.');
 		} else {
 			$this->session->notificacion=notif('error','No se pudo modificar el status.');
