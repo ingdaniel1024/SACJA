@@ -41,7 +41,7 @@
           <li><a href="/inicio"><i class="fa fa-home"></i> Inicio </a></li>
           <li><a><i class="fa fa-edit"></i> Admin <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                  <li><a href="/registro/usuario">Registrar Usuario</a></li>
+                  <li><a href="/usuario">Usuarios</a></li>
                   <li><a href="/union">Uniones</a></li>
                   <li><a href="/asociacion">Asociaciones</a></li>
                   <li><a href="/distrito">Distritos</a></li>

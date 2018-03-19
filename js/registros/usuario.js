@@ -6,10 +6,12 @@ $.ajax({
 
 		$.each(response,function(index,value){//Por cada union añadir un option al select
 			$('#id_clase')
-         		.append($("<option></option>")
-                .attr("value",value.nombre_clase)
-                .text(value.nombre_clase));
-			//console.log(value.id_union+' -> '+value.nombre_union);
+    		.append($("<option></option>")
+            .attr("value",value.id_clase)
+            .text(value.nombre_clase));
+            if(value.id_clase== php['id_clase']){//En caso de editar, selecciona la union existente
+				$('#id_clase option[value='+php['id_clase']+']').attr("selected","selected");
+			}
 		});
 	},
 	error: function(error){
