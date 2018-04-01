@@ -19,3 +19,9 @@ function invertir_fecha($fecha)
 	$f = explode('-',$fecha);
 	return $f[2].'-'.$f[1].'-'.$f[0];
 }
+
+function boton($type,$text,$icon=null,$url='#')
+{
+	$icon = ($icon!=null) ? " <i class='$type fa fa-$icon'></i>" : '';
+	return "<a href='#'><button type='button' class='btn btn-$type btn-xs' data-toggle='modal' data='1' data-target='$url'>$text $icon</button> </a>";
+}

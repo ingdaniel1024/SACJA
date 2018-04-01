@@ -8,18 +8,20 @@ class Club extends CI_Controller {
 		$this->load->library('session');
 		$this->load->helper('notifications');
 		$this->load->helper('form');
+		$this->load->helper('formularios_helper');
         if (!$this->session->id) { header('Location: /'); }
         $this->load->model('sql_model','sql',TRUE);
+        $this->load->model('clubes_model','club',TRUE);
     }
 
 	public function index()
 	{
 		$data['persona'] = $this->session->persona;
 		$data['permisos'] = $this->session->permisos;
-		$data['clubes'] = $this->sql->get_where('clubes',null);
+		$data['clubes'] = $this->club->club();
 		$data['view'] = 'listado/club';
-		$data['js'] = array('/js/icheck.min.js','/js/listado/club');
-		$data['css'] = array('/css/icheck/green');
+		$data['js'] = array('/js/icheck.min.js','/js/listado/club.js','/js/select2.full.js');
+		$data['css'] = array('/css/icheck/green','/css/select2.min.css');
 
 		$this->load->view('inicio',$data);
 	}
@@ -58,6 +60,22 @@ class Club extends CI_Controller {
 		
 		header('Location: /club');
 	}
+
+	public function asignar_director()//Actualizar en la DB
+	{
+		if($this->input->post('id_club')!=null && $this->input->post('director')!=null){
+		//Asignar director
+			$director = array('director' => $this->input->post('director'));
+			if ($this->sql->update('clubes', $director,'id_club',$this->input->post('id_club'))){
+				$this->session->notificacion=notif('success','Director asignado correctamente.');
+			} else {
+				$this->session->notificacion=notif('error','No se pudo asignar el director.');
+			}
+		}
+		
+		header('Location: /club');
+	}
+
 	public function status($status,$id)
 	{
 		if($this->sql->change_status('clubes',$status,'id_club',$id)){

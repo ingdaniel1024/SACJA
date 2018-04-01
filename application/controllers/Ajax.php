@@ -8,6 +8,18 @@ class Ajax extends CI_Controller {
 		$this->load->database();
 	}
 
+	public function usuarios()
+	{
+		$where = array(
+			'status ' => 1 //Usuarios activos
+		);
+		
+		$query = $this->db->get_where('usuarios',$where);
+		$result = $query->result_array();
+
+		echo json_encode($result);
+	}
+
 	public function uniones()
 	{
 		$query = $this->db->get('uniones');
@@ -50,5 +62,12 @@ class Ajax extends CI_Controller {
 		$result = $query->result_array();
 
 		echo json_encode($result);
+	}
+
+	public function modal($nombre_modal)
+	{
+
+		$modal = $this->load->view('modals/'.$nombre_modal,$this->input->post());
+		echo json_encode($modal);
 	}
 }
