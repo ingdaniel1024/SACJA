@@ -31,6 +31,10 @@ class Periodo_anual extends CI_Controller {
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro/periodo_anual';
 		$data['periodo_anual'] = ($id!=null && $id!=0) ? $this->sql->get_where('periodosanuales',array('id_periodo_anual'=>$id))[0] : null;
+		if($data['periodo_anual']!=null){
+			$data['periodo_anual']['fecha_inicio'] = invertir_fecha($data['periodo_anual']['fecha_inicio']);
+			$data['periodo_anual']['fecha_fin'] = invertir_fecha($data['periodo_anual']['fecha_fin']);
+		}
 		$data['js'] = array('/js/jquery.inputmask.js');
 
 		$this->load->view('inicio',$data);

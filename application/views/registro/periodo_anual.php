@@ -37,15 +37,11 @@
           <div class="x_content">
               <form class="form-horizontal form-label-left" id="formulario_registro_periodo_anual" action="/periodo_anual/registrar" method="POST" enctype="multipart/form-data">
                 <?php if($periodo_anual!=null){ echo form_hidden('id_periodo_anual', $periodo_anual['id_periodo_anual']);}?>
-                <?php
-                  $periodo_anual['fecha_inicio']=isset($periodo_anual['fecha_inicio'])?invertir_fecha($periodo_anual['fecha_inicio']):null;
-                  $periodo_anual['fecha_fin']=isset($periodo_anual['fecha_fin'])?invertir_fecha($periodo_anual['fecha_fin']):null;
-                ?>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre del periodo anual<span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" value="<?=$periodo_anual['nombre_periodo_anual']?>" id="nombre" name="nombre_periodo_anual" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="text" value="<?=$periodo_anual['nombre_periodo']?>" id="nombre" name="nombre_periodo" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">

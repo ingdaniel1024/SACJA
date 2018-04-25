@@ -8,6 +8,7 @@ class Usuario extends CI_Controller {
 		$this->load->library('session');
 		$this->load->helper('notifications');
 		$this->load->helper('form');
+		$this->load->helper('formularios');
         if (!$this->session->id) { header('Location: /'); }
         $this->load->model('sql_model','sql',TRUE);
     }
@@ -21,8 +22,7 @@ class Usuario extends CI_Controller {
 		$data['js'] = array(
 			'/js/icheck.min.js',
 			'/js/jquery.inputmask.js',
-			'/js/listado/usuario.js',
-			'/js/registros/usuario.js');
+			'/js/listado/usuario.js');
 		$data['css'] = array('/css/icheck/green');
 
 		$this->load->view('inicio',$data);
@@ -35,6 +35,7 @@ class Usuario extends CI_Controller {
 		$data['view'] = 'registro/usuario';
 		$data['usuario'] = ($id!=null && $id!=0) ? $this->sql->get_where('usuarios',array('id_usuario'=>$id))[0] : null;
 		if($data['usuario']!=null){
+			$data['usuario']['fecha_nacimiento'] = invertir_fecha($data['usuario']['fecha_nacimiento']);
 			$data['js_vars'] = array('id_clase'=>$data['usuario']['id_clase']);
 		}
 		$data['js'] = array('/js/icheck.min.js','/js/jquery.inputmask.js','/js/registros/usuario');

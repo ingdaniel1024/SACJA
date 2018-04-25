@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="iglesia">Iglesia</label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_iglesia">Iglesia</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                       <select class="form-control" id="id_iglesia" name="id_iglesia" required>
                           <option value="0">Selecciona una Iglesia</option>

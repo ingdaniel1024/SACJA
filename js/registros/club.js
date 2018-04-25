@@ -20,7 +20,7 @@ $.ajax({
 });
 
 $('#formulario_registro_club').submit(function(e){
-	if($('#iglesia option:selected').val()==0){
+	if($('#id_iglesia option:selected').val()==0){
 		e.preventDefault();
 		alert('Selecciona una iglesia.');
 	}

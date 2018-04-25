@@ -35,7 +35,7 @@ class Club extends CI_Controller {
 		if($data['club']!=null){
 			$data['js_vars'] = array('id_iglesia'=>$data['club']['id_iglesia']);
 		}
-		$data['js'] = array('/js/icheck.min.js','/js/registros/club');
+		$data['js'] = array('/js/icheck.min.js','/js/registros/club.js');
 
 		$this->load->view('inicio',$data);
 	}

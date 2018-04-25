@@ -70,7 +70,7 @@
                               <input type="checkbox" class="tableflat">
                           </td>
                           <td class=" "><?= $periodo_anual['id_periodo_anual'] ?></td>
-                          <td class=" "><?= $periodo_anual['nombre_periodo_anual'] ?></td>
+                          <td class=" "><?= $periodo_anual['nombre_periodo'] ?></td>
                           <td class=" ">
                             <a href="/periodo_anual/editar/<?=$id_periodo_anual?>"><button type="button" class="btn btn-info btn-xs">Editar <i class="info fa fa-edit"></i></button></a>
                             <?php?>
