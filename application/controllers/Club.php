@@ -63,11 +63,24 @@ class Club extends CI_Controller {
 
 	public function asignar_director()//Actualizar en la DB
 	{
-		if($this->input->post('id_club')!=null && $this->input->post('director')!=null){
+		$this->load->model('usuarios_model','usuario',TRUE);
+		$this->load->model('clubes_model','club',TRUE);
+		$director_id = $this->input->post('director');
+
+		if($this->input->post('id_club')!=null && $director_id!=null){
 		//Asignar director
-			$director = array('director' => $this->input->post('director'));
+			$director = array('director' => $director_id);
+			$id_director_actual = $this->club->get_director_from_club($this->input->post('id_club'));
+			if($id_director_actual!=0) {
+				$this->usuario->set_permisos($id_director_actual,'director',0);
+			}
 			if ($this->sql->update('clubes', $director,'id_club',$this->input->post('id_club'))){
-				$this->session->notificacion=notif('success','Director asignado correctamente.');
+				
+				if ($this->usuario->set_permisos($director_id,'director')) {
+					$this->session->notificacion=notif('success','Director asignado correctamente.');
+				} else {
+					$this->session->notificacion=notif('info','Director asignado. Error al asisnar permisos.');
+				}
 			} else {
 				$this->session->notificacion=notif('error','No se pudo asignar el director.');
 			}
