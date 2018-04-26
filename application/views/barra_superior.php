@@ -8,7 +8,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="/img/usuarios/daniel@sacja.com.png" alt="">Daniel LG
+            <?php $imagen = ($usuario['imagen']=='usuario.jpg' && $usuario['sexo']=='femenino') ? 'usuaria.jpg' : $usuario['imagen'];?>
+            <img src="/img/usuarios/<?=$imagen?>" alt=""><?=$usuario['nombre']?>
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">

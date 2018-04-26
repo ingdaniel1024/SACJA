@@ -9,11 +9,12 @@
     <!-- menu profile quick info -->
     <div class="profile clearfix">
       <div class="profile_pic">
-        <img src="/img/usuarios/daniel@sacja.com.png" alt="..." class="img-circle profile_img">
+        <?php $imagen = ($usuario['imagen']=='usuario.jpg' && $usuario['sexo']=='femenino') ? 'usuaria.jpg' : $usuario['imagen'];?>
+        <img src="/img/usuarios/<?=$imagen?>" alt="<?=$usuario['nombre']?>" class="img-circle profile_img">
       </div>
       <div class="profile_info">
-        <span><?= ($persona['sexo']=='femenino')?'Bienvenida':'Bienvenido'; ?>,</span>
-        <h2><?= $persona['nombre']?></h2>
+        <span><?= ($usuario['sexo']=='femenino')?'Bienvenida':'Bienvenido'; ?>,</span>
+        <h2><?= $usuario['nombre']?></h2>
       </div>
       <div class="clearfix"></div>
     </div>
@@ -39,28 +40,25 @@
         </h3>
         <ul class="nav side-menu">
           <li><a href="/inicio"><i class="fa fa-home"></i> Inicio </a></li>
-          <li><a><i class="fa fa-edit"></i> Admin <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                  <li><a href="/usuario">Usuarios</a></li>
-                  <li><a href="/periodo_anual">Periodos Anuales</a></li>
-                  <li><a href="/union">Uniones</a></li>
-                  <li><a href="/asociacion">Asociaciones</a></li>
-                  <li><a href="/distrito">Distritos</a></li>
-                  <li><a href="/iglesia">Iglesias</a></li>
-                  <li><a href="/club">Clubes</a></li>
-                  <li><a href="#">Mi perfil</a></li>
-              </ul>
-          </li>
-          
-          <li><a><i class="fa fa-child"></i> Old Admin <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                  <li><a href="?pagina=administrarRequisitos">Requisitos de Clase</a></li>
-              </ul>
-          </li>
-      
-  
 
-  
+          <?php
+            if($permisos['admin']){ ?>
+              <li><a><i class="fa fa-edit"></i> Admin <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="/usuario">Usuarios</a></li>
+                    <li><a href="/periodo_anual">Periodos Anuales</a></li>
+                    <li><a href="/union">Uniones</a></li>
+                    <li><a href="/asociacion">Asociaciones</a></li>
+                    <li><a href="/distrito">Distritos</a></li>
+                    <li><a href="/iglesia">Iglesias</a></li>
+                    <li><a href="/club">Clubes</a></li>
+                    <li><a href="#">Mi perfil</a></li>
+                </ul>
+              </li>
+            <?php }
+          ?>
+          
+          
           <li><a><i class="fa fa-building"></i> Asociación <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
                   <li><a href="?pagina=periodos">Periodos de Investidura</a></li>
