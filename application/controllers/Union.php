@@ -14,7 +14,7 @@ class Union extends CI_Controller {
 
 	public function index()
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['uniones'] = $this->sql->get_where('uniones',null);
 		$data['view'] = 'listado/union';
@@ -26,7 +26,7 @@ class Union extends CI_Controller {
 
 	public function agregar($id=null)//Formulario de registro
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro/union';
 		$data['union'] = ($id!=null && $id!=0) ? $this->sql->get_where('uniones',array('id_union'=>$id))[0] : null;

@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 	public function cerrar_sesion()
 	{
 		unset($_SESSION['id']);
-		unset($_SESSION['persona']);
+		unset($_SESSION['usuario']);
 		unset($_SESSION['permisos']);
         header('Location: /');
 	}

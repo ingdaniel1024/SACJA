@@ -15,7 +15,7 @@ class Periodo_anual extends CI_Controller {
 
 	public function index()
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['periodo_anuales'] = $this->sql->get_where('periodosanuales',null);
 		$data['view'] = 'listado/periodo_anual';
@@ -27,7 +27,7 @@ class Periodo_anual extends CI_Controller {
 
 	public function agregar($id=null)//Formulario de registro
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro/periodo_anual';
 		$data['periodo_anual'] = ($id!=null && $id!=0) ? $this->sql->get_where('periodosanuales',array('id_periodo_anual'=>$id))[0] : null;

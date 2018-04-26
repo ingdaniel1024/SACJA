@@ -14,7 +14,7 @@ class Iglesia extends CI_Controller {
 
 	public function index()
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['iglesias'] = $this->sql->get_where('iglesias',null);
 		$data['view'] = 'listado/iglesia';
@@ -26,7 +26,7 @@ class Iglesia extends CI_Controller {
 
 	public function agregar($id=null)//Formulario de registro
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro/iglesia';
 		$data['iglesia'] = ($id!=null && $id!=0) ? $this->sql->get_where('iglesias',array('id_iglesia'=>$id))[0] : null;

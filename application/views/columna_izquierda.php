@@ -50,8 +50,17 @@
                             <li><a href="#">Mi perfil</a></li>
                         </ul>
                     </li>
-                    <?php }
-                        ?>
+                    <?php } ?>
+
+                    <?php
+                        if($permisos['director']){ ?>
+                    <li>
+                        <a><i class="fa fa-edit"></i> Club <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <li><a href="/usuario">Administrar </a></li>
+                        </ul>
+                    </li>
+                    <?php } ?>
                     <li>
                         <a><i class="fa fa-building"></i> Asociación <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">

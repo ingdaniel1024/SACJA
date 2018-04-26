@@ -14,7 +14,7 @@ class Asociacion extends CI_Controller {
 
 	public function index()
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['asociaciones'] = $this->sql->get_where('asociaciones_misiones',null);
 		$data['view'] = 'listado/asociacion';
@@ -26,7 +26,7 @@ class Asociacion extends CI_Controller {
 
 	public function agregar($id=null)//Formulario de registro
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro/asociacion';
 		$data['asociacion'] = ($id!=null && $id!=0) ? $this->sql->get_where('asociaciones_misiones',array('id_asociacion'=>$id))[0] : null;

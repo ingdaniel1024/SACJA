@@ -16,7 +16,7 @@ class Club extends CI_Controller {
 
 	public function index()
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['clubes'] = $this->club->club();
 		$data['view'] = 'listado/club';
@@ -28,7 +28,7 @@ class Club extends CI_Controller {
 
 	public function agregar($id=null)//Formulario de registro
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro/club';
 		$data['club'] = ($id!=null && $id!=0) ? $this->sql->get_where('clubes',array('id_club'=>$id))[0] : null;

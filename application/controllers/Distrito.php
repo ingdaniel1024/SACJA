@@ -14,7 +14,7 @@ class Distrito extends CI_Controller {
 
 	public function index()
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['distritos'] = $this->sql->get_where('distritos',null);
 		$data['view'] = 'listado/distrito';
@@ -26,7 +26,7 @@ class Distrito extends CI_Controller {
 
 	public function agregar($id=null)//Formulario de registro
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro/distrito';
 		$data['distrito'] = ($id!=null && $id!=0) ? $this->sql->get_where('distritos',array('id_distrito'=>$id))[0] : null;

@@ -15,7 +15,7 @@ class Usuario extends CI_Controller {
 
 	public function index()
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['usuarios'] = $this->sql->get_where('usuarios',null);
 		$data['view'] = 'listado/usuario';
@@ -30,7 +30,7 @@ class Usuario extends CI_Controller {
 
 	public function agregar($id=null)//Formulario de registro
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro/usuario';
 		$data['usuario'] = ($id!=null && $id!=0) ? $this->sql->get_where('usuarios',array('id_usuario'=>$id))[0] : null;

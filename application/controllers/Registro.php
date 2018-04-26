@@ -16,7 +16,7 @@ class Registro extends CI_Controller {
 
 	public function index($formato='')
 	{
-		$data['persona'] = $this->session->persona;
+		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = ($formato!='')?'registro/'.$formato:'dummy';
 		if (file_exists('js/registros/'.$formato.'.js')) {
