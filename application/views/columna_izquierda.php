@@ -57,7 +57,7 @@
                     <li>
                         <a><i class="fa fa-edit"></i> Club <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
-                            <li><a href="/usuario">Administrar </a></li>
+                            <li><a href="/club/directiva">Directiva </a></li>
                         </ul>
                     </li>
                     <?php } ?>

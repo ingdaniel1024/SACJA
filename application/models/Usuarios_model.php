@@ -37,4 +37,24 @@ class Usuarios_model extends CI_Model {
 			return ($this->db->insert('permisos', $info)) ? TRUE : FALSE;
 		}
 	}
+
+	function set_directivo($usuario,$club,$periodo)
+	{
+		//Comprobar que exista el usuario
+		$where = array(
+			'id_usuario'=>$usuario,
+			'id_club'=>$club,
+			'id_periodo_anual'=>$periodo
+		);
+		if(!count($this->db->get_where('miembros',$where)->result_array())>0){
+			$info = array(
+				'id_usuario'=>$usuario,
+				'id_club'=>$club,
+				'id_periodo_anual'=>$periodo
+			);
+
+			return ($this->db->insert('miembros', $info)) ? TRUE : FALSE;
+
+		}
+	}
 }

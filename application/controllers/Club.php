@@ -26,6 +26,21 @@ class Club extends CI_Controller {
 		$this->load->view('inicio',$data);
 	}
 
+	public function directiva()
+	{
+		$periodo_actual = $this->club->periodo_actual()['id_periodo_anual'];
+		$club = $this->club->get_club_from_director($this->session->usuario['id_usuario'])['id_club'];
+		
+		$data['usuario'] = $this->session->usuario;
+		$data['permisos'] = $this->session->permisos;
+		$data['directiva'] = $this->club->get_directiva_from_club($club,$periodo_actual);
+		$data['view'] = 'listado/directiva';
+		$data['js'] = array('/js/icheck.min.js','/js/listado/club.js','/js/select2.full.js');
+		$data['css'] = array('/css/icheck/green','/css/select2.min.css');
+
+		$this->load->view('inicio',$data);
+	}
+
 	public function agregar($id=null)//Formulario de registro
 	{
 		$data['usuario'] = $this->session->usuario;
@@ -36,6 +51,24 @@ class Club extends CI_Controller {
 			$data['js_vars'] = array('id_iglesia'=>$data['club']['id_iglesia']);
 		}
 		$data['js'] = array('/js/icheck.min.js','/js/registros/club.js');
+
+		$this->load->view('inicio',$data);
+	}
+
+	public function agregar_directivo($id=null)//Formulario de registro
+	{
+		$data['usuario'] = $this->session->usuario;
+		$data['permisos'] = $this->session->permisos;
+		$data['view'] = 'registro/directivo';
+		$club = $this->club->get_club_from_director($this->session->usuario['id_usuario']);
+		$periodo_actual = $this->club->periodo_actual()['id_periodo_anual'];
+		$data['id_club'] = $club['id_club'];
+		$data['id_periodo_anual'] = $periodo_actual;
+		/*if($data['club']!=null){
+			$data['js_vars'] = array('id_iglesia'=>$data['club']['id_iglesia']);
+		}*/
+		$data['js'] = array('/js/icheck.min.js','/js/registros/directivo.js','/js/select2.full.js');
+		$data['css'] = array('/css/select2.min.css');
 
 		$this->load->view('inicio',$data);
 	}
@@ -59,6 +92,25 @@ class Club extends CI_Controller {
 		}
 		
 		header('Location: /club');
+	}
+
+	public function registrar_directivo()//Guardar en la DB
+	{
+		$id_club= $this->input->post('id_club');
+		$id_periodo_anual= $this->input->post('id_periodo_anual');
+		$usuario= $this->input->post('usuario');
+		$cargo= $this->input->post('cargo');
+		//Asignar permisos
+		$this->load->model('usuarios_model','usuario',TRUE);
+
+		$this->usuario->set_permisos($usuario,$cargo);
+		if($this->usuario->set_directivo($usuario,$id_club,$id_periodo_anual)){
+			$this->session->notificacion=notif('success','Miembro registrado correctamente.');
+		} else {
+			$this->session->notificacion=notif('error','No se pudo registrar el directivo.');
+		}
+		
+		header('Location: /club/directiva');
 	}
 
 	public function asignar_director()//Actualizar en la DB
