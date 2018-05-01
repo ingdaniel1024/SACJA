@@ -36,36 +36,36 @@
           </div>
           <div class="x_content">
               <form class="form-horizontal form-label-left" id="formulario_registro_usuario" action="/usuario/registrar" method="POST" enctype="multipart/form-data">
-                <?php if($usuario!=null){ echo form_hidden('id_usuario', $usuario['id_usuario']);}?>
+                <?php if($user!=null){ echo form_hidden('id_usuario', $user['id_usuario']);}?>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" value="<?=$usuario['nombre']?>" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="text" value="<?=$user['nombre']?>" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido_paterno">Apellido paterno <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" value="<?=$usuario['apellido_paterno']?>" id="apellido_paterno" name="apellido_paterno" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="text" value="<?=$user['apellido_paterno']?>" id="apellido_paterno" name="apellido_paterno" required="required" class="form-control col-md-7 col-xs-12" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido_materno">Apellido materno
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" value="<?=$usuario['apellido_materno']?>" id="apellido_materno" name="apellido_materno" class="form-control col-md-7 col-xs-12" maxlength="50">
+                        <input type="text" value="<?=$user['apellido_materno']?>" id="apellido_materno" name="apellido_materno" class="form-control col-md-7 col-xs-12" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="correo">Correo <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="email" value="<?=$usuario['correo']?>" id="correo" name="correo" class="form-control col-md-7 col-xs-12" maxlength="50" required>
+                        <input type="email" value="<?=$user['correo']?>" id="correo" name="correo" class="form-control col-md-7 col-xs-12" maxlength="50" required>
                     </div>
                 </div>
-                <?php if(!$usuario['id_usuario'] >0){?>
+                <?php if(!$user['id_usuario'] >0){?>
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contrasena">Contraseña <span class="required">*</span>
                     </label>
@@ -85,15 +85,15 @@
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sexo">Sexo:</label>
                       <p>
-                          <label>Masculino:</label> <input type="radio" class="flat" name="sexo" id="sexoM" value="masculino" <?= ($usuario['sexo']=='femenino') ? '' : 'checked'?> required />
-                          <label>Femenino:</label> <input type="radio" class="flat" name="sexo" id="sexoF" <?= ($usuario['sexo']=='femenino') ? 'checked' : ''?> value="femenino" />
+                          <label>Masculino:</label> <input type="radio" class="flat" name="sexo" id="sexoM" value="masculino" <?= ($user['sexo']=='femenino') ? '' : 'checked'?> required />
+                          <label>Femenino:</label> <input type="radio" class="flat" name="sexo" id="sexoF" <?= ($user['sexo']=='femenino') ? 'checked' : ''?> value="femenino" />
                       </p>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha_nacimiento">Fecha de Nacimiento
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" value="<?=$usuario['fecha_nacimiento']?>" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control" data-inputmask="'mask':'99/99/9999'">
+                        <input type="text" value="<?=$user['fecha_nacimiento']?>" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control" data-inputmask="'mask':'99/99/9999'">
                     </div>
                 </div>
                 <div class="form-group">
@@ -108,7 +108,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">Teléfono
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" value="<?=$usuario['telefono']?>" name="telefono" id="telefono" class="form-control" data-inputmask="'mask':'(999)-999-9999'">
+                        <input type="text" value="<?=$user['telefono']?>" name="telefono" id="telefono" class="form-control" data-inputmask="'mask':'(999)-999-9999'">
                     </div>
                 </div>
                 <div class="form-group">

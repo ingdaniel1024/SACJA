@@ -33,10 +33,10 @@ class Usuario extends CI_Controller {
 		$data['usuario'] = $this->session->usuario;
 		$data['permisos'] = $this->session->permisos;
 		$data['view'] = 'registro/usuario';
-		$data['usuario'] = ($id!=null && $id!=0) ? $this->sql->get_where('usuarios',array('id_usuario'=>$id))[0] : null;
-		if($data['usuario']!=null){
-			$data['usuario']['fecha_nacimiento'] = invertir_fecha($data['usuario']['fecha_nacimiento']);
-			$data['js_vars'] = array('id_clase'=>$data['usuario']['id_clase']);
+		$data['user'] = ($id!=null && $id!=0) ? $this->sql->get_where('usuarios',array('id_usuario'=>$id))[0] : null;
+		if($data['user']!=null){
+			$data['user']['fecha_nacimiento'] = invertir_fecha($data['user']['fecha_nacimiento']);
+			$data['js_vars'] = array('id_clase'=>$data['user']['id_clase']);
 		}
 		$data['js'] = array('/js/icheck.min.js','/js/jquery.inputmask.js','/js/registros/usuario');
 		$data['css'] = array('/css/icheck/green');
